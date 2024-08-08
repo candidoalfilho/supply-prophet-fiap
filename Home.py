@@ -1,12 +1,16 @@
 import streamlit as st
+import matplotlib.pyplot as plt
+import numpy as np
+from datetime import datetime, timedelta
 
 # Configuração da barra lateral
-st.sidebar.title('Navegação')
+# st.sidebar.title('Navegação')
 
-if st.session_state.get('authentication_status'):
-    navigation = st.sidebar.radio('Ir para', ['Home', 'Estoque', 'Histórico', 'Previsão', 'Sobre', 'Login'], key='authenticated_navigation')
-else:
-    navigation = st.sidebar.radio('Ir para', ['Home', 'Sobre', 'Login'], key='unauthenticated_navigation')
+# navigation_options = ['Home', 'Sobre', 'Login']
+# if st.session_state.get('authentication_status'):
+#     navigation_options = ['Home', 'Estoque', 'Histórico', 'Previsão', 'Sobre', 'Logout']
+
+# navigation = st.sidebar.radio('Ir para', navigation_options)
 
 # Título e descrição da página inicial
 st.title("SupplyProphet 🎆")
@@ -32,10 +36,6 @@ Abaixo está um exemplo de como a previsão de demanda pode ser visualizada. Esc
 """)
 
 # Exemplo de gráfico de previsão
-import matplotlib.pyplot as plt
-import numpy as np
-from datetime import datetime, timedelta
-
 # Gerar dados fictícios
 dates = [datetime.now() - timedelta(days=i) for i in range(30)]
 values = np.random.randint(50, 150, size=30)
